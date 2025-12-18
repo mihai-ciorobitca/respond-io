@@ -2,10 +2,7 @@
   "name": "meta-privacy-deletion-flask",
   "version": "1.0.0",
   "private": true,
-  "description": "Flask app providing Privacy Policy and User Data Deletion pages for Meta app compliance.",
-  "scripts": {
-    "dev": "python -m flask --app app run --port 5000",
-    "start": "python -m flask --app app run --host 0.0.0.0 --port 5000"
-  },
-  "license": "UNLICENSED"
+  "engines": {
+    "node": "20.x"
+  }
 }

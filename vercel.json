@@ -1,16 +1,9 @@
 {
   "version": 2,
   "builds": [
-    {
-      "src": "app.py",
-      "use": "@vercel/python"
-    }
+    { "src": "app/app.py", "use": "@vercel/python" }
   ],
   "routes": [
-    { "src": "/", "dest": "/app.py" },
-    { "src": "/privacy", "dest": "/app.py" },
-    { "src": "/data-deletion", "dest": "/app.py" },
-    { "src": "/data-deletion/request", "dest": "/app.py" },
-    { "src": "/admin/deletion-requests", "dest": "/app.py" }
+    { "src": "/(.*)", "dest": "app/app.py" }
   ]
 }
