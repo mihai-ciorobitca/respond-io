@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin - Deletion Requests - {{ business }}</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 24px; max-width: 1100px; line-height: 1.55; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { text-align: left; border-bottom: 1px solid #ddd; padding: 10px; vertical-align: top; }
+    th { background: #fafafa; }
+    code { background: #f3f3f3; padding: 2px 4px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <h1>Deletion Requests (Admin)</h1>
+  <p><strong>Business:</strong> {{ business }}</p>
+
+  <p>
+    This page is not protected. In production, secure it (login, IP allowlist, etc.).
+  </p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Request ID</th>
+        <th>Identifier</th>
+        <th>Channel</th>
+        <th>Status</th>
+        <th>Created (UTC)</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% if requests %}
+        {% for r in requests %}
+          <tr>
+            <td><code>{{ r.request_id }}</code></td>
+            <td>{{ r.identifier }}</td>
+            <td>{{ r.channel }}</td>
+            <td>{{ r.status }}</td>
+            <td>{{ r.created_utc }}</td>
+            <td>{{ r.notes }}</td>
+          </tr>
+        {% endfor %}
+      {% else %}
+        <tr><td colspan="6">No requests yet.</td></tr>
+      {% endif %}
+    </tbody>
+  </table>
+</body>
+</html>

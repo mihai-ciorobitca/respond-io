@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Privacy Policy - {{ business }}</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 24px; max-width: 900px; line-height: 1.55; }
+    code { background: #f3f3f3; padding: 2px 4px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <h1>Privacy Policy</h1>
+  <p>
+    <strong>Business:</strong> {{ business }}<br/>
+    <strong>Contact:</strong> {{ email }}<br/>
+    <strong>Region:</strong> {{ country }}<br/>
+    <strong>Last updated:</strong> {{ last_updated }}
+  </p>
+
+  <h2>What data we collect</h2>
+  <ul>
+    <li>Information you provide via Facebook/Instagram Lead Ads forms (e.g., name, email, phone number, and form responses).</li>
+    <li>Basic metadata about the submission (e.g., submission time, form name/ID, timestamps).</li>
+  </ul>
+
+  <h2>How we use your data</h2>
+  <ul>
+    <li>To contact you about your request and provide support.</li>
+    <li>To manage conversations using our messaging tools.</li>
+    <li>To improve our internal sales/support process.</li>
+  </ul>
+
+  <h2>How we share your data</h2>
+  <p>
+    We do not sell your personal data. We may share data with service providers that help us operate,
+    such as automation tools and messaging/inbox platforms.
+  </p>
+
+  <h2>Retention</h2>
+  <p>
+    We keep personal data only as long as needed for the purposes above, typically {{ retention }} from the last interaction,
+    unless a longer period is required by law.
+  </p>
+
+  <h2>Your choices</h2>
+  <p>
+    You can request access, correction, or deletion of your data by using our data deletion page:
+    <a href="/data-deletion">/data-deletion</a>.
+  </p>
+
+  <h2>Contact</h2>
+  <p>Email: <a href="mailto:{{ email }}">{{ email }}</a></p>
+</body>
+</html>

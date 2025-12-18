@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Data Deletion - {{ business }}</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 24px; max-width: 900px; line-height: 1.55; }
+    .msg { padding: 10px 12px; border-radius: 8px; margin: 10px 0; }
+    .success { background: #e8fff0; border: 1px solid #b8f5cf; }
+    .error { background: #fff0f0; border: 1px solid #f5b8b8; }
+    label { display:block; margin-top: 12px; font-weight: 600; }
+    input, textarea, select { width: 100%; padding: 10px; margin-top: 6px; }
+    button { margin-top: 14px; padding: 10px 14px; cursor: pointer; }
+    code { background: #f3f3f3; padding: 2px 4px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <h1>User Data Deletion</h1>
+  <p>
+    <strong>Business:</strong> {{ business }}<br/>
+    <strong>Last updated:</strong> {{ last_updated }}
+  </p>
+
+  <h2>How to request deletion</h2>
+  <p>
+    You can request deletion of your data by:
+  </p>
+  <ol>
+    <li>Emailing us at <a href="mailto:{{ email }}">{{ email }}</a> with subject <code>Data Deletion Request</code>, OR</li>
+    <li>Submitting the form below.</li>
+  </ol>
+  <p>
+    We will process verified requests within <strong>30 days</strong> (unless we must retain certain records for legal reasons).
+  </p>
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class="msg {{ category }}">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+  <h2>Deletion request form</h2>
+  <form method="post" action="/data-deletion/request">
+    <label for="identifier">Email or phone number you used *</label>
+    <input id="identifier" name="identifier" placeholder="e.g. john@example.com or +40123456789" required />
+
+    <label for="channel">Where did you contact us? (optional)</label>
+    <select id="channel" name="channel">
+      <option value="">Select one</option>
+      <option value="facebook_lead_ads">Facebook/Instagram Lead Ads</option>
+      <option value="whatsapp">WhatsApp</option>
+      <option value="sms">SMS</option>
+      <option value="email">Email</option>
+      <option value="other">Other</option>
+    </select>
+
+    <label for="notes">Notes (optional)</label>
+    <textarea id="notes" name="notes" rows="4" placeholder="Any details that help us find your data..."></textarea>
+
+    <button type="submit">Submit deletion request</button>
+  </form>
+</body>
+</html>
